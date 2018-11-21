@@ -1,9 +1,14 @@
 SELECT ('ФИО: Чернова Кристина Сергеевна');
+
+DROP TABLE IF EXISTS Persons CASCADE;
+
 CREATE TABLE Persons(
 id INT NOT NULL ,
 fio TEXT NOT NULL,
 PRIMARY KEY(id)
 );
+
+DROP TABLE IF EXISTS Films CASCADE;
 
 CREATE TABLE Films(
 title TEXT NOT NULL,
@@ -22,6 +27,8 @@ INSERT INTO Films VALUES('BlacKkKlansman',5, 'USA',84571960,'2018/12/31');
 
 INSERT INTO Persons VALUES(1, 'Christopher Nolan');
 INSERT INTO Persons VALUES(2, 'Leonardo DiCaprio');
+
+DROP TABLE IF EXISTS Person2Content CASCADE;
 
 CREATE TABLE Person2Content(person_id INT NOT NULL ,film_id INT NOT NULL ,persontype TEXT NOT NULL,FOREIGN KEY (person_id) REFERENCES Persons(id),FOREIGN KEY (film_id) REFERENCES Films(id));
 
