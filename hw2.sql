@@ -13,5 +13,5 @@ SELECT l1.movieid FROM links AS l1 INNER JOIN
 (SELECT movieid, AVG(rating) FROM ratings GROUP BY movieid HAVING AVG(rating) > 3.5) AS r1 ON l1.movieid = r1.movieid LIMIT 10;
 -- 4.2
 SELECT AVG(rating) FROM ratings INNER JOIN
-(SELECT userid as uid FROM ratings GROUP BY userid HAVING count(userid) > 10) AS rs	ON ratings.userid = rs.uid ;
+(SELECT userid as uid FROM ratings GROUP BY userid HAVING count(userid) > 10) AS rs ON ratings.userid = rs.uid LIMIT 10;
 	
